@@ -53,15 +53,23 @@ where $\Y_c = \Y - \one_n \ybar$. (suggestion: work by Monday)
 
 \end{enumerate}
 
-\item  If $\tau = 1/g \sim G(1/2, n/2)$, derive the conditional posterior distribution of $\tau \mid \beta_0, \beta, \phi, \Y$.  {\em Use the likelihood decomposition above}
+\item  If $\tau = 1/g \sim G(1/2, n/2)$, find the marginal prior for $\b \mid \phi, \beta_0$.
 
-\item  Using the Prostate data from HW4 and the model {\tt lcavol $\sim$ 1 + factor(Gleason)}, use JAGS and an approximation to the independent Jeffreys prior $p(\beta_0, \phi) \propto 1/\phi$, to  obtain 95\% credible intervals for the 4 group means using MCMC based on your distributions above under
+\item Derive the conditional posterior distribution of $\tau \mid \beta_0, \beta, \phi, \Y$.  {\em Use the likelihood decomposition above}
+
+\item  Refer to the Prostate data from HW4 and the model {\tt lcavol $\sim$ 1 + factor(Gleason)},
+
 \begin{enumerate}
-  \item  the  g-prior above for $\b \mid \phi, \beta_0$ (with centered $\X$) with $g=n$
+  \item  Obtain  95\% credible intervals analytically (i.e. using the appropriate t-distributions) for the 4 group means with the g-prior  with $g=n$ for $\b \mid \phi, \beta_0$ (with centered $\X$) and calculate for the data.
 
-  \item  mixtures of the g-prior above where $\tau = 1/g \sim G(1/2, n/2)$
+  \item   Use JAGS and an approximation to the independent Jeffreys prior $p(\beta_0, \phi) \propto 1/\phi$, to  obtain 95\% credible intervals for the 4 group means using MCMC based on your distributions above under the  g-prior  with $g=n$ for $\b \mid \phi, \beta_0$ (with centered $\X$).  Use the multivariate normal distribution in JAGS and remember jags specifies normal distributions using precisions rather than variances.  (Try before Wednesday).   Your results should be close to the non-simulation based solutions above.
 
-\item    will your results be the same if you change the baseline category?  Explain.
+\item  Extend the JAGS code to use a mixture of the g-prior by adding that $\tau = 1/g \sim G(1/2, n/2)$.
+
+\item Find the Student-t distribution for $\b \mid \phi$ by integrating out $\tau$. Use the ({\tt dmt} in the JAGS code instead of the multivariate normal g-prior.   Are you intervals comparable to those above?  (if code is correct they should agree)
+
+\item   Will your results above be the same if you change the baseline category?  Explain.
+
 
 \end{enumerate}
 
